@@ -6,9 +6,13 @@ fichier (et le pousser sur GitHub) suffit à changer le contenu des épisodes.
 ## 1. Préparer l'environnement
 
 ```bash
-pip install -q -r requirements.txt
-notebooklm auth check --test --json
+python -m pip install -q -r requirements.txt
+python -m notebooklm auth check --test --json
 ```
+
+Toujours utiliser `python` (et non `pip` ou `python3` seuls) : le conteneur a
+plusieurs interpréteurs et la bibliothèque doit être installée dans celui qui
+lance `podcast.py`.
 
 Si la vérification échoue (cookies Google expirés), s'arrêter là et terminer
 par un message clair : « Session NotebookLM expirée : relancer
