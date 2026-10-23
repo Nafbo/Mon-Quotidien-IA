@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+episode.json
+*.mp3
+*.m4a
+storage_state.json
+reconnexions.log
