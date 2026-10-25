@@ -10,7 +10,7 @@ Format du fichier épisode :
       "title": "Quotidien'IA – 23 octobre 2026",
       "instructions": "Consignes pour les animateurs du podcast",
       "urls": ["https://...", "..."],
-      "notes": "Synthèse texte facultative, ajoutée comme source"
+      "notes": "Texte de l'analyse du jour, ajouté comme source"
     }
 
 Authentification : variable NOTEBOOKLM_AUTH_JSON (contenu de
@@ -44,10 +44,10 @@ async def run(episode: dict, args: argparse.Namespace) -> int:
 
         if episode.get("notes"):
             src = await client.sources.add_text(
-                nb.id, "Synthèse du jour", episode["notes"], wait=True
+                nb.id, "Analyse du jour", episode["notes"], wait=True
             )
             source_ids.append(src.id)
-            print("  + synthèse texte")
+            print("  + analyse du jour (texte)")
 
         if not source_ids:
             print("Aucune source exploitable, épisode abandonné.", file=sys.stderr)
